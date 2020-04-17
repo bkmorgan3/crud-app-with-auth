@@ -1,15 +1,15 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { fetchTodos } from '../actions';
+import Todo from './Todo'
+// import { connect } from 'react-redux';
+// import { fetchTodos } from '../actions';
 
 class TodosList extends React.Component {
     componentDidMount() {
-        this.props.fetchTodos()
     }
     render() {
         console.log("props",this.props)
         return (
-            <div>TodosList</div>
+            <div>Todos List</div>
         )
     }
 }
@@ -19,4 +19,4 @@ class TodosList extends React.Component {
         return {todos: state.todos}
     }
 
-export default connect(mapStateToProps, {fetchTodos}) (TodosList);
+export default TodosList

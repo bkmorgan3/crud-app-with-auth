@@ -1,4 +1,23 @@
 import React, {Component} from 'react';
+import styled, {css} from 'styled-components';
+
+const Button = styled.button`
+    background: transparent;
+    border-radius: 3px;
+    border: 2px solid palevioletred;
+    color: palevioletred;
+    margin: 0 1em;
+    padding: 0.25em 1em;
+`;
+
+const Form = styled.form`
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+
+`;
+
+
 
 class AddTodoForm extends Component {
     constructor(props) {
@@ -23,11 +42,11 @@ class AddTodoForm extends Component {
     //    console.log("state", this.state)
         return (
         <div>
-            <form onSubmit={this.handleSubmit}>
+            <Form onSubmit={this.handleSubmit}>
                 <label htmlFor="todo">Add A Todo</label>
                 <input value={this.state.value} onChange={this.handleChange} type="text" />
-                <button>Add Todo</button>
-            </form>
+                <Button>Add Todo</Button>
+            </Form>
         </div>
         )
     }

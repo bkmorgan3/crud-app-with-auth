@@ -1,6 +1,15 @@
 import React from 'react';
 import TodosList from './TodosList';
-import AddTodoForm from './AddTodoForm'
+import AddTodoForm from './AddTodoForm';
+
+import styled from 'styled-components';
+
+const Div = styled.div`
+  max-width: 900px;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+`;
 
 class App extends React.Component{
  constructor(props) {
@@ -58,10 +67,10 @@ class App extends React.Component{
  }
   render() {
     return (
-      <div>
+      <Div>
         <AddTodoForm addTodo={this.addTodo} />
         <TodosList completeTodo={this.completeTodo} addTodo={this.addTodo} deleteTodo={this.deleteTodo} todos={this.state.todos} />
-      </div>
+      </Div>
     )
   }
 }
