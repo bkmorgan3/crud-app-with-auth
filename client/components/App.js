@@ -6,9 +6,11 @@ import styled from 'styled-components';
 
 const Div = styled.div`
   max-width: 900px;
-  display: flex;
-  justify-content: center;
+  /* display: flex; */
+  /* justify-content: center; */
   margin: 0 auto;
+  background-color: dodgerblue;
+  font-family: cursive;
 `;
 
 class App extends React.Component{

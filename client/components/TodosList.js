@@ -6,10 +6,13 @@ import Todo from './Todo'
 class TodosList extends React.Component {
     componentDidMount() {
     }
+   
     render() {
-        console.log("props",this.props)
+        console.log("props pa john",this.props)
         return (
-            <div>Todos List</div>
+            <div>{this.props.todos.map(todo => (
+                <Todo key={todo.id} id={todo.id} text={todo.text} deleteTodo={this.props.deleteTodo} />
+            ))}</div>
         )
     }
 }

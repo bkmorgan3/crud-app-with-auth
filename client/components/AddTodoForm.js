@@ -5,15 +5,37 @@ const Button = styled.button`
     background: transparent;
     border-radius: 3px;
     border: 2px solid palevioletred;
-    color: palevioletred;
-    margin: 0 1em;
-    padding: 0.25em 1em;
+    color: #000;
+    display: inline-block;
+    height: 40px;
+    width: 50%;
+    cursor: pointer;
+    background-color: #4caf50;
 `;
 
 const Form = styled.form`
     display: flex;
     flex-direction: column;
-    /* padding: 10px; */
+    align-items: center;
+`;
+
+const Label = styled.label`
+    font-weight: bold;
+    color: #111;
+    font-size: 3rem;
+`;
+
+const Input = styled.input`
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+    text-align: center;
+    border-radius: 4px;
+
 
 `;
 
@@ -43,8 +65,8 @@ class AddTodoForm extends Component {
         return (
         <div>
             <Form onSubmit={this.handleSubmit}>
-                <label htmlFor="todo">Add A Todo</label>
-                <input value={this.state.value} onChange={this.handleChange} type="text" />
+                <Label htmlFor="todo">Add A Todo</Label>
+                <Input placeholder="Add Your Todo Item Right Here and See It Render Below." value={this.state.value} onChange={this.handleChange} type="text" />
                 <Button>Add Todo</Button>
             </Form>
         </div>
