@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.post('/api/signup', userController.createUser, sessionController.startSession, (req, res) => {
-  res.status(200).json(res.locals)
+  res.status(200).json({})
 });
 
 app.post('/api/todos', todoController.addTodo, (req, res) => {
