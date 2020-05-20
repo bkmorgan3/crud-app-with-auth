@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "babel": {
-      "plugins": [
-        "babel-plugin-styled-components"
-      ]
+    "plugins": [
+      "babel-plugin-styled-components"
+    ]
   },
   "main": "index.js",
   "scripts": {
