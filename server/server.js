@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const userController = require("./controllers/userController");
 const sessionController = require("./controllers/sessionController");
 const todoController = require('./controllers/todoController')
-const { createUser } = require('./controllers/tokenUserController')
+const { createUser, signToken } = require('./controllers/tokenUserController')
 
 const app = express();
 const PORT = 3000;
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Signup Route
-app.post('/api/auth/signup', createUser, (req, res) => {
+app.post('/api/auth/signup', createUser, signToken, (req, res) => {
   res.status(200).json({})
 });
 // Login Route
