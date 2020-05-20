@@ -12,14 +12,18 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Signup Route
-app.post('/api/signup', userController.createUser, sessionController.startSession, (req, res) => {
+app.post('/api/auth/signup', userController.createUser, (req, res) => {
   res.status(200).json({})
 });
+// Login Route
+app.post('/api/auth/login', userController.verifyUser, (req, res) => {
+  res.status(200).json({})
+})
 // TODOS Routes
 app.post('/api/todos', todoController.addTodo, (req, res) => {
   res.status(200).json(res.locals.todos)
 })
-app.get('/api/todos', todoController.getTodos, (req,res) => {
+app.get('/api/todos', todoController.getTodos, (req, res) => {
   res.status(200).json(res.locals.todos)
 })
 app.delete("/api/todos/:id", todoController.deleteTodo, (req, res) => {
