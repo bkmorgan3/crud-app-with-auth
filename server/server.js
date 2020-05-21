@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const userController = require("./controllers/userController");
 const sessionController = require("./controllers/sessionController");
 const todoController = require('./controllers/todoController')
-const { createUser, signToken } = require('./controllers/tokenUserController')
+const { createUser, signToken, verifyPW } = require('./controllers/tokenUserController')
 
 const app = express();
 const PORT = 3000;
@@ -17,7 +17,7 @@ app.post('/api/auth/signup', createUser, signToken, (req, res) => {
   res.status(200).json({})
 });
 // Login Route
-app.post('/api/auth/login', userController.verifyUser, (req, res) => {
+app.post('/api/auth/login', verifyPW, (req, res) => {
   res.status(200).json({})
 })
 // TODOS Routes

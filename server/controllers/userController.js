@@ -30,7 +30,7 @@ const verifyUser = async (req, res, next) => {
     bcrypt.compare(req.body.password, result.rows[0].password, (err, result) => {
       if (err) {
         console.error(err)
-        return next()
+        return next
       }
       if (result) {
         return next()
