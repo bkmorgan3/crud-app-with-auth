@@ -40,10 +40,18 @@ exports.signToken = async (req, res, next) => {
 
 exports.verifyPW = async (req, res, next) => {
   try {
-    console.log("logging in", req.body)
     let userQ = `SELECT * FROM users WHERE username = '${req.body.username}'`;
     const { rows } = await pool.query(userQ)
-    return next()
+    const { password } = rows[0]
+    let isMatch = await bcrypt.compare(req.body.password, password)
+    if (isMatch) {
+      return next()
+    } else {
+      return next({
+        status: 400,
+        message: "Invalid login credentials"
+      })
+    }
   } catch (err) {
     return next({
       status: 400,

@@ -17,7 +17,7 @@ app.post('/api/auth/signup', createUser, signToken, (req, res) => {
   res.status(200).json({})
 });
 // Login Route
-app.post('/api/auth/login', verifyPW, (req, res) => {
+app.post('/api/auth/login', verifyPW, signToken, (req, res) => {
   res.status(200).json({})
 })
 // TODOS Routes

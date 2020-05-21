@@ -21,22 +21,16 @@ const createUser = async (req, res, next) => {
 }
 
 const verifyUser = async (req, res, next) => {
-  let queryforPW = `SELECT password FROM users WHERE username = '${req.body.username}'`;
-  pool.query(queryforPW, (err, result) => {
-    if (err) {
-      console.error(err)
-      return next()
-    }
-    bcrypt.compare(req.body.password, result.rows[0].password, (err, result) => {
-      if (err) {
-        console.error(err)
-        return next
-      }
-      if (result) {
-        return next()
-      }
+  try {
+    let queryforPW = `SELECT password FROM users WHERE username = '${req.body.username}'`;
+    const { rows } = await pool.query(queryforPW);
+    return next()
+  } catch (err) {
+    return next({
+      status: 400,
+      err: err.message
     })
-  })
+  }
 }
 
 module.exports = {
