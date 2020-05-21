@@ -14,11 +14,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Signup Route
 app.post('/api/auth/signup', createUser, signToken, (req, res) => {
-  res.status(200).json({})
+  res.sendStatus(200)
 });
 // Login Route
 app.post('/api/auth/login', verifyPW, signToken, (req, res) => {
-  res.status(200).json({})
+  res.sendStatus(200);
 })
 // TODOS Routes
 app.post('/api/todos', todoController.addTodo, (req, res) => {
